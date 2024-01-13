@@ -6,11 +6,11 @@ test.each([
   ['Ошибка! Имя "Максимилиан" слишком длинное, должно быть не более 10-и символов.', 'Максимилиан', 'Daemon'],
 ])(
   'should throw error %s with name: %s and type: %s', ( errorText, name, type ) => {
-    expect(()=>{new Character(name, type, 100, 1, 10, 40)}).toThrow(errorText);
+    expect(()=>{new Character(name, type)}).toThrow(errorText);
   
 });
 
   test('should return character to string', () => {
-    const result = new Character('Олег', 'Undead', 100, 1, 10, 40);
-    expect(result.toString()).toEqual('Undead Олег (уровень: 1, здоровье: 100, атака: 10, защита: 40)');
+    const result = new Character('Олег', 'Undead');
+    expect(result.toString()).toEqual('Undead Олег (уровень: 1, здоровье: 100, атака: undefined, защита: undefined)');
   });
